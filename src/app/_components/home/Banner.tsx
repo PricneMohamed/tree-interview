@@ -7,14 +7,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function Banner() {
-  const dounts = ["strawberry", "blueberry", "chocolate"];
   type DonutType = "strawberry" | "blueberry" | "chocolate";
+  const dounts: DonutType[] = ["strawberry", "blueberry", "chocolate"];
 
   const [mydount, setMyDount] = useState<{ index: number; type: DonutType }>({
     index: 0,
     type: "strawberry",
   });
-
 
   useEffect(() => {
     const currentColor =
@@ -25,14 +24,14 @@ export default function Banner() {
 
   useLayoutEffect(() => {
     gsap.fromTo(
-      '.myele',
+      ".myele",
       { y: 30, autoAlpha: 1 },
       {
         y: 0,
         autoAlpha: 1,
         duration: 4,
         stagger: 3,
-        repeat: -1, 
+        repeat: -1,
         yoyo: true,
         ease: "none",
       },
@@ -114,7 +113,7 @@ export default function Banner() {
             alt={dount_data[mydount.index]?.[mydount.type]?.item ?? ""}
           />{" "}
         </div>
-        <div className={style.image_Box_style} >
+        <div className={style.image_Box_style}>
           <div className="myele">
             <Image
               src={"/images/home/leaf.png"}
